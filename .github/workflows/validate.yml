@@ -1,0 +1,31 @@
+# Every pull request and every push to main: each plugin is checked the way LlamaTree reads it, a changed plugin must
+# carry a new version, and the README's table of plugins must match the manifests.
+name: Validate plugins
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check the plugins
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            node tools/validate.mjs --base "origin/${{ github.base_ref }}"
+          else
+            node tools/validate.mjs
+          fi
+      - name: Check the README's table of plugins
+        run: node tools/catalog.mjs --readme --check
