@@ -7,7 +7,10 @@ The plugins for [LlamaTree](https://github.com/LlamachantTechnology/LlamaTree), 
 <!-- plugins:start -->
 | Plugin | What it does | Version | Shows in | Asks to see |
 |---|---|---|---|---|
+| [Ask](plugins/ask) | A chat beside your sessions: ask what each is doing or waiting on, have a message drafted, and send it to any session | [1.0.0](https://github.com/LlamachantTechnology/LlamaTree-Plugins/releases/tag/ask-v1.0.0) | the side panel | sessions, ask, message |
+| [Floor plan](plugins/floor-plan) | A project's sessions on a city of its code: each top-level folder a building with a floor per sub-folder, lit where files were read and edited, each session a beacon where it's working | [1.0.0](https://github.com/LlamachantTechnology/LlamaTree-Plugins/releases/tag/floor-plan-v1.0.0) | a tab | sessions |
 | [Messenger](plugins/messenger) | Send a message to a Claude or Codex session and see the answers, or the messages sessions send it | [1.0.0](https://github.com/LlamachantTechnology/LlamaTree-Plugins/releases/tag/messenger-v1.0.0) | the side panel | message |
+| [Timeline](plugins/timeline) | A live map of your sessions in the side panel: what each is doing now, your prompts and what Claude did between them, the tokens each is using, and a summary on demand | [1.0.0](https://github.com/LlamachantTechnology/LlamaTree-Plugins/releases/tag/timeline-v1.0.0) | the side panel | sessions, ask |
 <!-- plugins:end -->
 
 The table is written by `node tools/catalog.mjs --readme` from each plugin's `plugin.json`; the version links to its release.
