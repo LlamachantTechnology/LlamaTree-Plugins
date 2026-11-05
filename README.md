@@ -27,4 +27,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md): the folder layout, the manifest ([`schem
 
 ## Licence
 
-[MIT](LICENSE).
+Apache License 2.0, the same as LlamaTree: see [LICENSE](LICENSE) and [NOTICE](NOTICE).
