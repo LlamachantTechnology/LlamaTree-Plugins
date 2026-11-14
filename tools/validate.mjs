@@ -18,6 +18,8 @@ const SEMVER = /^\d+\.\d+\.\d+$/;
 const ACCESS = ['sessions', 'message', 'ask'];
 const MENUS = ['palette', 'project', 'session', 'sessionTab'];
 const PLACEMENTS = ['tab', 'panel'];
+/** Compares two major.minor.patch versions: negative, zero or positive. */
+const cmpVersion = (a, b) => { const x = a.split('.').map(Number), y = b.split('.').map(Number); return x[0] - y[0] || x[1] - y[1] || x[2] - y[2]; };
 const ICON_TYPES = ['.svg', '.png', '.ico', '.gif', '.jpg', '.jpeg', '.webp'];
 const MAX_ICON = 64 * 1024;
 
@@ -60,7 +62,7 @@ function checkPlugin(id) {
   } catch (e) { return problem(id, `plugin.json can't be read: ${e.message}`); }
   if (typeof m !== 'object' || m === null || Array.isArray(m)) return problem(id, 'plugin.json must hold an object');
 
-  const known = ['title', 'description', 'version', 'minAppVersion', 'entry', 'icon', 'placement', 'access', 'inbox', 'menu', 'toolbar'];
+  const known = ['title', 'description', 'version', 'minAppVersion', 'entry', 'icon', 'placement', 'access', 'inbox', 'background', 'menu', 'toolbar'];
   for (const k of Object.keys(m)) if (!known.includes(k)) problem(id, `plugin.json has "${k}", which the app doesn't read`);
   if (typeof m.title !== 'string' || !m.title.trim()) problem(id, '"title" is needed');
   else if (m.title.length > 60) problem(id, '"title" is over 60 characters');
@@ -78,6 +80,8 @@ function checkPlugin(id) {
   }
   if (m.inbox !== undefined && typeof m.inbox !== 'boolean') problem(id, '"inbox" must be true or false');
   if (m.inbox === true && !(m.access ?? []).includes('message')) problem(id, '"inbox": true needs "message" in "access"');
+  if (m.background !== undefined && typeof m.background !== 'boolean') problem(id, '"background" must be true or false');
+  if (m.background === true && (m.minAppVersion === undefined || cmpVersion(m.minAppVersion, '1.3.5') < 0)) problem(id, '"background": true needs "minAppVersion" 1.3.5 or later, the first LlamaTree that runs plugins in the background');
   if (m.menu !== undefined) {
     if (!Array.isArray(m.menu)) problem(id, '"menu" must be a list');
     else m.menu.forEach((item, i) => {

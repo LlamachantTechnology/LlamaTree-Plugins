@@ -20,6 +20,7 @@
       "description": "What it asks to see beyond its own page; the app asks the user before any is given. sessions: the sessions and their state; message: send messages to sessions and read their answers; ask: put a question about sessions to an agent (asked separately)."
     },
     "inbox": { "type": "boolean", "default": false, "description": "Whether sessions may message it first. Needs \"message\" access." },
+    "background": { "type": "boolean", "default": false, "description": "Whether its page runs from when the app opens, out of sight, so it can answer messages while its tab isn't open. Needs LlamaTree 1.3.5 (set minAppVersion)." },
     "menu": {
       "type": "array",
       "items": {

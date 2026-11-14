@@ -1,0 +1,15 @@
+{
+  "title": "Session notes",
+  "description": "Notes for each session that a compaction or a new conversation can't lose, kept by you and by the session's agent",
+  "version": "1.0.0",
+  "minAppVersion": "1.3.5",
+  "entry": "index.html",
+  "icon": "icon.svg",
+  "placement": "panel",
+  "access": ["sessions", "message"],
+  "inbox": true,
+  "background": true,
+  "menu": [
+    { "label": "Session notes", "command": "show", "where": ["session", "sessionTab"] }
+  ]
+}

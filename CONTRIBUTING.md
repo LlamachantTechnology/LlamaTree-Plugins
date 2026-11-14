@@ -15,7 +15,7 @@ plugins/<id>/
   CHANGELOG.md    a "## <version>" section per release, newest first
 ```
 
-`plugin.json` needs a `title` and a `version` (major.minor.patch). Everything else is optional: `description`, `entry`, `icon`, `placement` (`tab` or `panel`), `access`, `inbox`, `menu`, `toolbar`, `minAppVersion`. The schema says what each is; `node tools/validate.mjs` checks them the way the app does.
+`plugin.json` needs a `title` and a `version` (major.minor.patch). Everything else is optional: `description`, `entry`, `icon`, `placement` (`tab` or `panel`), `access`, `inbox`, `background`, `menu`, `toolbar`, `minAppVersion`. The schema says what each is; `node tools/validate.mjs` checks them the way the app does.
 
 Keep everything the plugin needs inside its folder: the app serves only that folder, and loads nothing from the network for it.
 
