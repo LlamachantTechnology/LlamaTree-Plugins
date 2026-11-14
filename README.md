@@ -7,7 +7,8 @@ The plugins for [LlamaTree](https://github.com/LlamachantTechnology/LlamaTree), 
 <!-- plugins:start -->
 | Plugin | What it does | Version | Shows in | Asks to see |
 |---|---|---|---|---|
-| [Messenger](plugins/messenger) | Send a message to a Claude or Codex session and see the answers, or the messages sessions send it | [1.0.0](https://github.com/LlamachantTechnology/LlamaTree-Plugins/releases/tag/messenger-v1.0.0) | the side panel | message |
+| [Messenger](plugins/messenger) | Send a message to a Claude or Codex session and see the answers, or the messages sessions send it | [1.0.1](https://github.com/LlamachantTechnology/LlamaTree-Plugins/releases/tag/messenger-v1.0.1) | the side panel | message |
+| [Session notes](plugins/session-notes) | Notes for each session that a compaction or a new conversation can't lose, kept by you and by the session's agent | [1.0.0](https://github.com/LlamachantTechnology/LlamaTree-Plugins/releases/tag/session-notes-v1.0.0) | the side panel | sessions, message |
 <!-- plugins:end -->
 
 The table is written by `node tools/catalog.mjs --readme` from each plugin's `plugin.json`; the version links to its release.
