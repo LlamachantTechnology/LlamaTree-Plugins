@@ -22,7 +22,7 @@ function request(name, args = {}) {
 /** The address sessions message it by (the app's relay names a plugin "plugin:" and its id). */
 const ME = 'plugin:session-notes';
 
-const KEEP = `This is the Session notes plugin in LlamaTree. Its id for send_message is "${ME}". Please keep notes for this session there, so they outlast a compaction or a new conversation: whenever a piece of work is finished, a decision is made or the task changes, send it a message that starts with "save:" followed by the note, in a sentence or two. A save gets no answer, so carry on after sending one. Send it "read" to get the notes back. After your conversation is compacted they are also sent to you. Start by saving a note of where things stand now.`;
+const KEEP = `This is the Session notes plugin in LlamaTree. Its id for send_message is "${ME}". When the person mentions this session's notes, session notes, or notes in LlamaTree, they mean the notes kept here, not a file in the folder: save to them and read them with these messages, and leave any notes file alone unless they name it. Please keep notes for this session there, so they outlast a compaction or a new conversation: whenever a piece of work is finished, a decision is made or the task changes, send it a message that starts with "save:" followed by the note, in a sentence or two. A save gets no answer, so carry on after sending one. Send it "read" to get the notes back. After your conversation is compacted they are also sent to you. Start by saving a note of where things stand now.`;
 const STOP = 'You no longer need to keep notes with the Session notes plugin. The notes saved so far stay there.';
 const HELP = 'I keep this session\'s notes. Send "save: <note>" to add one, or "read" to get them back.';
 
